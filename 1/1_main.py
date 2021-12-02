@@ -22,8 +22,8 @@ def count_increase(ls:list):
 
 def sliding_window(ls:list):
     """Part II."""
-    prev = None
     count = 0
+    prev = None
     for i,j in enumerate(ls[:-2]):
         window = (ls[i], ls[i+1], ls[i+2])
         ptr = sum(window)
