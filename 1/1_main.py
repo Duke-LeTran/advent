@@ -2,6 +2,10 @@
 # Advent of Code 2021
 # Day 1: Sonar
 
+from pathlib import Path
+
+INPUT_FILE = Path.cwd() / 'input.txt'
+
 def count_increase(ls:list):
     """ Part I."""
     count = 0
@@ -47,7 +51,7 @@ def sliding_window(ls:list):
 
 def main():
     # I. Read
-    with open('1_input.txt') as f:
+    with open(INPUT_FILE) as f:
         # read file, split by newline, convert to int
         ls = [int(x) for x in f.read().split('\n')]
     
