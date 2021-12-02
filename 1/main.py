@@ -11,8 +11,9 @@ def count_increase(ls:list):
     count = 0
     prev = None
     for i, ptr in enumerate(ls):
-        if prev is None: # if initializing, save prev
+        if prev is None: # if initializing, save prev, continue
             prev = ptr
+            continue
         if ptr > prev: # if greater, count
             count += 1
             print(ptr, '✅', ':: (increased) :: count ::', count, \
@@ -34,7 +35,7 @@ def sliding_window(ls:list):
         if prev is None: # if initializing, save prev, continue
             prev = ptr
             continue
-        if ptr > prev: # if greater count
+        if ptr > prev: # if greater, count
             print(ptr, '✅', ':: (increased) :: (count) ::', count, \
                 ':: (ptr, prev)', ptr, prev, ':: (window)', window)
             count += 1
@@ -63,7 +64,7 @@ def main():
     print('Answers')
     print('####################')
     print('# Part I:', a_count)
-    print('# Part II', b_count )
+    print('# Part II:', b_count )
     
 
 if __name__ == '__main__':
