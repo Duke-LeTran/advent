@@ -1,43 +1,48 @@
+// https://medium.com/geekculture/javascript-vs-python-syntax-cheatsheet-9bc7c59599c6
+// https://jsdoc.app/about-getting-started
+// https://www.digitalocean.com/community/tutorials/how-to-work-with-files-using-the-fs-module-in-node-js
 console.log('hello nodejs!');
 
-// process args
-console.log(process.argv);
+// let fs = require('fs');
+let fs = require('node:fs');
 
-
-// process args
-console.log(process.argv.slice(2));
-
-// print env
-// console.log(process.env);
-
-// I. var, let const -----------------------------------------------------------
-// var is locally scoped
-var greeter = 'hey hi';
-
-function myFunction() {
-    var hello = 'hello world from the inside';
-    console.log(hello)
+/**
+ * Checks if character is a digit
+ * @param {string} input_char the character
+ * @return {bool} returns true or false, whether character is a digit
+ */
+function isDigit (input_char) {
+    return !isNaN(input_char)
 }
 
-console.log(greeter);
-console.log(myFunction()); // error
+// COLLECT NUMBERS
+let line = 'abc12defg34hi5'
 
-// II. Loops -------------------------------------------------------------------
-// https://stackoverflow.com/questions/3010840/loop-through-an-array-in-javascript
-// iterating through a list
-var ls = ['a', 'b', 'c', 'd']
-// method 1
-console.log('-------------------------- 1 ---------------------------')
-var arr_max_len = ls.length
-for (var i=0; i < arr_max_len; i++){
-    // console.log(i)
-    console.log(i, ls[i]);
-}
-// method 2
-console.log('-------------------------- 2 ---------------------------')
-ls.forEach(function(item, index) {console.log(item,index);})
-console.log('-------------------------- 3 ---------------------------')
-// method 3
-for (const i of ls) { 
-    console.log(i)
-};
+
+
+// function main() {
+//     // READ FILE
+//     // ITERATE LINE BY LINE
+//     // COLLECT NUMBERS
+//     // SUM NUMBERS
+// }
+
+
+let ls_result_number = [];
+
+
+fs.readFile('input.txt', 'utf8', (err, data) => {
+    if (err) {
+      console.error(err);
+      return;
+    }
+    // console.log(data);
+    for (let i = 0; i < data.length; i++ ) {
+      if (isDigit(data[i])) {
+            console.log(data)
+            ls_result_number.push(data[i]);
+      }
+    };
+});
+
+console.log(ls_result_number)
